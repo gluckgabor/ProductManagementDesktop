@@ -1,0 +1,23 @@
+[2025-08-29 21:25:23] [DATABASE_FILE_CREATION] - Database file created at: C:\Work\test\products.db
+[2025-08-29 21:25:38] [TABLE_CREATION] - Users table created/verified
+[2025-08-29 21:25:38] [TEST_DATA_INSERTION] - Sample user data inserted into Users table
+[2025-08-29 21:25:38] [TABLE_CREATION] - Products table created/verified
+[2025-08-29 21:25:38] [DATABASE_CONNECTION] - Connected to existing database at: C:\Work\test\products.db
+[2025-08-29 21:25:38] [REPOSITORY_INIT] - UserRepository initialized
+[2025-08-29 21:25:51] [LOGIN_ATTEMPT] - Login attempt for username: testuser
+[2025-08-29 21:25:51] [LOGIN] | User: testuser - User logged in successfully
+[2025-08-29 21:25:52] [TABLE_CREATION] - Users table created/verified
+[2025-08-29 21:25:52] [TABLE_CREATION] - Products table created/verified
+[2025-08-29 21:25:52] [DATABASE_CONNECTION] - Connected to existing database at: C:\Work\test\products.db
+[2025-08-29 21:25:52] [REPOSITORY_INIT] - ProductRepository initialized
+[2025-08-29 21:25:52] [PRODUCTS_RETRIEVED] - Retrieved 0 products from database
+[2025-08-29 21:26:00] [ADD_PRODUCT] - Product added: 1 (Stock: 1, Price: £1.00)
+[2025-08-29 21:26:00] [PRODUCTS_RETRIEVED] - Retrieved 1 products from database
+[2025-08-29 21:26:07] [ADD_PRODUCT] - Product added: 2 (Stock: 2, Price: £2.00)
+[2025-08-29 21:26:07] [PRODUCTS_RETRIEVED] - Retrieved 2 products from database
+[2025-08-29 21:26:14] [ADD_PRODUCT] - Product added: 2 (Stock: 2, Price: £2.00)
+[2025-08-29 21:26:14] [PRODUCTS_RETRIEVED] - Retrieved 3 products from database
+[2025-08-29 21:26:28] [UPDATE_PRODUCT] - Product updated: 2 (ID: 3, Stock: 4, Price: £2.00)
+[2025-08-29 21:26:28] [PRODUCTS_RETRIEVED] - Retrieved 3 products from database
+[2025-08-29 21:26:54] [DELETE_PRODUCT] - Product deleted: Product ID: 3
+[2025-08-29 21:26:54] [PRODUCTS_RETRIEVED] - Retrieved 2 products from database
