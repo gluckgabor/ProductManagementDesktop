@@ -1,0 +1,26 @@
+[2025-08-29 19:59:07] [REPOSITORY_INIT] - UserRepository initialized
+[2025-08-29 19:59:21] [LOGIN_ATTEMPT] - Login attempt for username: testuser
+[2025-08-29 19:59:21] [LOGIN] | User: testuser - User logged in successfully
+[2025-08-29 20:05:01] [REPOSITORY_INIT] - UserRepository initialized
+[2025-08-29 20:05:11] [LOGIN_ATTEMPT] - Login attempt for username: testuser
+[2025-08-29 20:05:11] [LOGIN] | User: testuser - User logged in successfully
+[2025-08-29 20:05:12] [REPOSITORY_INIT] - ProductRepository initialized
+[2025-08-29 20:05:12] [PRODUCTS_RETRIEVED] - Retrieved 7 products from database
+[2025-08-29 20:05:19] [ADD_PRODUCT] - Product added: 1 (Stock: 1, Price: £1.00)
+[2025-08-29 20:05:19] [PRODUCTS_RETRIEVED] - Retrieved 8 products from database
+[2025-08-29 20:06:40] [DELETE_PRODUCT] - Product deleted: Product ID: 8
+[2025-08-29 20:06:40] [PRODUCTS_RETRIEVED] - Retrieved 7 products from database
+[2025-08-29 20:07:35] [REPOSITORY_INIT] - UserRepository initialized
+[2025-08-29 20:07:43] [LOGIN_ATTEMPT] - Login attempt for username: testuser
+[2025-08-29 20:07:43] [LOGIN] | User: testuser - User logged in successfully
+[2025-08-29 20:07:44] [REPOSITORY_INIT] - ProductRepository initialized
+[2025-08-29 20:07:44] [PRODUCTS_RETRIEVED] - Retrieved 7 products from database
+[2025-08-29 20:11:06] [REPOSITORY_INIT] - UserRepository initialized
+[2025-08-29 20:11:17] [LOGIN_ATTEMPT] - Login attempt for username: testuser
+[2025-08-29 20:11:17] [LOGIN] | User: testuser - User logged in successfully
+[2025-08-29 20:11:18] [REPOSITORY_INIT] - ProductRepository initialized
+[2025-08-29 20:11:18] [PRODUCTS_RETRIEVED] - Retrieved 7 products from database
+[2025-08-29 21:19:01] [TABLE_CREATION] - Users table created/verified
+[2025-08-29 21:19:01] [TABLE_CREATION] - Products table created/verified
+[2025-08-29 21:19:01] [DATABASE_CONNECTION] - Connected to existing database at: C:\Work\ProductManagementWithAuth-main\bin\Debug\net8.0-windows\products.db
+[2025-08-29 21:19:01] [REPOSITORY_INIT] - UserRepository initialized

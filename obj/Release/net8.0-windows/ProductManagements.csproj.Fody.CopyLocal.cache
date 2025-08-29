@@ -1,0 +1,9 @@
+C:\Program Files\dotnet\sdk\NuGetFallbackFolder\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\4.4.0\runtimes\win-arm64\native\sni.dll
+C:\Program Files\dotnet\sdk\NuGetFallbackFolder\runtime.win-x64.runtime.native.system.data.sqlclient.sni\4.4.0\runtimes\win-x64\native\sni.dll
+C:\Program Files\dotnet\sdk\NuGetFallbackFolder\runtime.win-x86.runtime.native.system.data.sqlclient.sni\4.4.0\runtimes\win-x86\native\sni.dll
+C:\Users\gluck\.nuget\packages\stub.system.data.sqlite.core.netstandard\1.0.119\runtimes\linux-x64\native\SQLite.Interop.dll
+C:\Users\gluck\.nuget\packages\stub.system.data.sqlite.core.netstandard\1.0.119\runtimes\osx-x64\native\SQLite.Interop.dll
+C:\Users\gluck\.nuget\packages\stub.system.data.sqlite.core.netstandard\1.0.119\runtimes\win-x64\native\SQLite.Interop.dll
+C:\Users\gluck\.nuget\packages\stub.system.data.sqlite.core.netstandard\1.0.119\runtimes\win-x86\native\SQLite.Interop.dll
+C:\Users\gluck\.nuget\packages\system.data.sqlclient\4.8.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\gluck\.nuget\packages\system.data.sqlclient\4.8.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
