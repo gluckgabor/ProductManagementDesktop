@@ -93,9 +93,10 @@
             dgvProducts.Name = "dgvProducts";
             dgvProducts.RowHeadersWidth = 51;
             dgvProducts.RowTemplate.Height = 30;
-            dgvProducts.Size = new Size(592, 352);
+            dgvProducts.Size = new Size(706, 352);
             dgvProducts.TabIndex = 3;
             dgvProducts.CellClick += dvgProducts_CellContentClick;
+            dgvProducts.ColumnHeaderMouseClick += dgvProducts_ColumnHeaderMouseClick;
             // 
             // label3
             // 
@@ -188,7 +189,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 18F);
             label2.ForeColor = Color.Blue;
-            label2.Location = new Point(375, 28);
+            label2.Location = new Point(487, 28);
             label2.Name = "label2";
             label2.Size = new Size(161, 32);
             label2.TabIndex = 6;
@@ -199,7 +200,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1008, 475);
+            ClientSize = new Size(1124, 475);
             Controls.Add(label2);
             Controls.Add(btnUpdateProduct);
             Controls.Add(dgvProducts);
@@ -217,7 +218,7 @@
             Margin = new Padding(3, 2, 3, 2);
             Name = "Form1";
             RightToLeft = RightToLeft.No;
-            Text = "Form1";
+            Text = "Termékkezelő Rendszer";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dgvProducts).EndInit();
             ResumeLayout(false);

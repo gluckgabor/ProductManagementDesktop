@@ -1,0 +1,42 @@
+[2025-08-30 09:10:41] [DATABASE_FILE_CREATION] - Database file created at: C:\Work\ProductManagementWithAuth-main\bin\Release\net8.0-windows\products.db
+[2025-08-30 09:10:41] [TABLE_CREATION] - Users table created/verified
+[2025-08-30 09:10:41] [TEST_DATA_INSERTION] - Sample user data inserted into Users table
+[2025-08-30 09:10:41] [TABLE_CREATION] - Products table created/verified
+[2025-08-30 09:10:41] [DATABASE_CREATION] - Database and tables created successfully
+[2025-08-30 09:10:41] [REPOSITORY_INIT] - UserRepository initialized
+[2025-08-30 09:10:53] [LOGIN_ATTEMPT] - Login attempt for username: testuser
+[2025-08-30 09:10:53] [LOGIN] | User: testuser - User logged in successfully
+[2025-08-30 09:14:22] [DATABASE_FILE_CREATION] - Database file created at: C:\Work\ProductManagementWithAuth-main\bin\Release\net8.0-windows\products.db
+[2025-08-30 09:14:22] [TABLE_CREATION] - Users table created/verified
+[2025-08-30 09:14:22] [TEST_DATA_INSERTION] - Sample user data inserted into Users table
+[2025-08-30 09:14:22] [TABLE_CREATION] - Products table created/verified
+[2025-08-30 09:14:22] [DATABASE_CREATION] - Database and tables created successfully
+[2025-08-30 09:14:22] [REPOSITORY_INIT] - UserRepository initialized
+[2025-08-30 09:14:33] [LOGIN_ATTEMPT] - Login attempt for username: testuser
+[2025-08-30 09:14:33] [LOGIN] | User: testuser - User logged in successfully
+[2025-08-30 09:17:24] [DATABASE_FILE_CREATION] - Database file created at: C:\Work\ProductManagementWithAuth-main\bin\Release\net8.0-windows\products.db
+[2025-08-30 09:17:24] [TABLE_CREATION] - Users table created/verified
+[2025-08-30 09:17:24] [TEST_DATA_INSERTION] - Sample user data inserted into Users table
+[2025-08-30 09:17:24] [TABLE_CREATION] - Products table created/verified
+[2025-08-30 09:17:24] [DATABASE_CREATION] - Database and tables created successfully
+[2025-08-30 09:17:24] [REPOSITORY_INIT] - UserRepository initialized
+[2025-08-30 09:17:33] [LOGIN_ATTEMPT] - Login attempt for username: testuser
+[2025-08-30 09:17:33] [LOGIN] | User: testuser - User logged in successfully
+[2025-08-30 09:22:19] [TABLE_CREATION] - Users table created/verified
+[2025-08-30 09:22:19] [TABLE_CREATION] - Products table created/verified
+[2025-08-30 09:22:19] [DATABASE_CONNECTION] - Connected to existing database at: C:\Work\ProductManagementWithAuth-main\bin\Release\net8.0-windows\products.db
+[2025-08-30 09:22:19] [REPOSITORY_INIT] - UserRepository initialized
+[2025-08-30 11:18:07] [LOGIN_ATTEMPT] - Login attempt for username: testuser
+[2025-08-30 11:18:07] [LOGIN] | User: testuser - User logged in successfully
+[2025-08-30 11:24:28] [TABLE_CREATION] - Users table created/verified
+[2025-08-30 11:24:28] [TABLE_CREATION] - Products table created/verified
+[2025-08-30 11:24:28] [DATABASE_CONNECTION] - Connected to existing database at: C:\Work\ProductManagementWithAuth-main\bin\Release\net8.0-windows\products.db
+[2025-08-30 11:24:28] [REPOSITORY_INIT] - UserRepository initialized
+[2025-08-30 11:24:39] [LOGIN_ATTEMPT] - Login attempt for username: testuser
+[2025-08-30 11:24:39] [LOGIN] | User: testuser - User logged in successfully
+[2025-08-30 11:25:14] [TABLE_CREATION] - Users table created/verified
+[2025-08-30 11:25:14] [TABLE_CREATION] - Products table created/verified
+[2025-08-30 11:25:14] [DATABASE_CONNECTION] - Connected to existing database at: C:\Work\ProductManagementWithAuth-main\bin\Release\net8.0-windows\products.db
+[2025-08-30 11:25:14] [REPOSITORY_INIT] - UserRepository initialized
+[2025-08-30 11:25:24] [LOGIN_ATTEMPT] - Login attempt for username: testuser
+[2025-08-30 11:25:24] [LOGIN] | User: testuser - User logged in successfully

@@ -1,3 +1,13 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
 namespace ProductManagements
 {
     public partial class Form1 : Form
@@ -17,7 +27,6 @@ namespace ProductManagements
             {
                 MessageBox.Show($"Hiba a termék adatbázis inicializálásakor: {ex.Message}",
                     "Inicializálási hiba", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                // You might want to close the application or disable functionality
             }
         }
 
@@ -33,6 +42,12 @@ namespace ProductManagements
                 dgvProducts.Columns["Description"].HeaderText = "Leírás";
                 dgvProducts.Columns["StockQuantity"].HeaderText = "Készlet";
                 dgvProducts.Columns["Price"].HeaderText = "Ár";
+                dgvProducts.Columns["CreatedDate"].HeaderText = "Létrehozás dátuma";
+
+                // BUG #7: Fixed column widths - long names will break UI layout
+                dgvProducts.Columns["Name"].Width = 120; // Fixed width, too narrow for long names
+                dgvProducts.Columns["Name"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                dgvProducts.DefaultCellStyle.WrapMode = DataGridViewTriState.False; // No text wrapping
             }
         }
 
@@ -50,10 +65,47 @@ namespace ProductManagements
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        // BUG #6: Inconsistent sorting - treats numbers as strings
+        private void dgvProducts_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            // Empty event handler
+            try
+            {
+                string columnName = dgvProducts.Columns[e.ColumnIndex].Name;
+                var products = dgvProducts.DataSource as List<Product>;
+
+                if (products == null) return;
+
+                List<Product> sortedProducts;
+
+                if (columnName == "Price")
+                {
+                    // BUG: Sorting price as string instead of decimal (10, 100, 2, 20, 3, 30...)
+                    sortedProducts = products.OrderBy(p => p.Price.ToString()).ToList();
+                }
+                else if (columnName == "StockQuantity")
+                {
+                    // BUG: Sorting stock quantity as string instead of integer
+                    sortedProducts = products.OrderBy(p => p.StockQuantity.ToString()).ToList();
+                }
+                else if (columnName == "Name")
+                {
+                    sortedProducts = products.OrderBy(p => p.Name).ToList();
+                }
+                else
+                {
+                    return;
+                }
+
+                dgvProducts.DataSource = sortedProducts;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Hiba a rendezés során: {ex.Message}",
+                    "Rendezési hiba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
+        private void label1_Click(object sender, EventArgs e) { }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -76,6 +128,9 @@ namespace ProductManagements
                     return;
                 }
 
+                // BUG #1: Missing price validation - will crash on empty price!
+                // Original validation commented out:
+                /*
                 if (string.IsNullOrWhiteSpace(txtPrice.Text))
                 {
                     MessageBox.Show("Az ár kötelezõ.", "Érvényesítési hiba",
@@ -83,6 +138,7 @@ namespace ProductManagements
                     txtPrice.Focus();
                     return;
                 }
+                */
 
                 // Parse numeric values with error handling
                 if (!int.TryParse(txtStockQuantity.Text.Trim(), out int stockQuantity))
@@ -94,6 +150,12 @@ namespace ProductManagements
                     return;
                 }
 
+                // BUG #1: This will crash if txtPrice.Text is empty!
+                decimal price = decimal.Parse(txtPrice.Text.Trim()); // No TryParse!
+
+                // BUG #4: Weak price validation - allows too many decimal places
+                // Original strict validation commented out:
+                /*
                 if (!decimal.TryParse(txtPrice.Text.Trim(), out decimal price))
                 {
                     MessageBox.Show($"Érvénytelen ár: '{txtPrice.Text}'. Kérjük, adjon meg egy érvényes decimális számot.",
@@ -102,8 +164,11 @@ namespace ProductManagements
                     txtPrice.SelectAll();
                     return;
                 }
+                */
 
-                // Validate business rules
+                // BUG #2: Missing negative stock validation
+                // Original validation commented out:
+                /*
                 if (stockQuantity < 0)
                 {
                     MessageBox.Show("A készlet mennyisége nem lehet negatív.", "Érvényesítési hiba",
@@ -111,6 +176,7 @@ namespace ProductManagements
                     txtStockQuantity.Focus();
                     return;
                 }
+                */
 
                 if (price <= 0)
                 {
@@ -131,7 +197,6 @@ namespace ProductManagements
                 _productRepository.AddProduct(newProduct);
                 LoadProducts();
 
-                // Clear form after successful addition
                 ClearForm();
 
                 MessageBox.Show("A termék sikeresen hozzáadva!", "Siker",
@@ -139,25 +204,17 @@ namespace ProductManagements
             }
             catch (Exception ex)
             {
+                // BUG #1: Poor error handling - shows technical details to user
                 MessageBox.Show($"Hiba a termék hozzáadásakor: {ex.Message}",
                     "Termék hozzáadási hiba", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void label5_Click(object sender, EventArgs e)
-        {
-            // Empty event handler
-        }
+        private void label5_Click(object sender, EventArgs e) { }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-            // Empty event handler
-        }
+        private void textBox2_TextChanged(object sender, EventArgs e) { }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-            // Empty event handler
-        }
+        private void label2_Click(object sender, EventArgs e) { }
 
         private void dvgProducts_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -173,7 +230,7 @@ namespace ProductManagements
                         txtName.Text = selectedProduct.Name ?? string.Empty;
                         txtDescription.Text = selectedProduct.Description ?? string.Empty;
                         txtStockQuantity.Text = selectedProduct.StockQuantity.ToString();
-                        txtPrice.Text = selectedProduct.Price.ToString("F2"); // Format to 2 decimal places
+                        txtPrice.Text = selectedProduct.Price.ToString("F2");
                     }
                 }
             }
@@ -184,10 +241,7 @@ namespace ProductManagements
             }
         }
 
-        private void txtProductName_TextChanged(object sender, EventArgs e)
-        {
-            // Empty event handler
-        }
+        private void txtProductName_TextChanged(object sender, EventArgs e) { }
 
         private void btnDeleteProduct_Click(object sender, EventArgs e)
         {
@@ -201,7 +255,10 @@ namespace ProductManagements
                     if (result == DialogResult.Yes)
                     {
                         _productRepository.DeleteProduct(_currentProduct.Id);
-                        LoadProducts();
+
+                        // BUG #5: Missing LoadProducts() call - list won't refresh after deletion!
+                        // LoadProducts(); // This should be uncommented for fix
+
                         ClearForm();
                         _currentProduct = null;
 
@@ -277,7 +334,9 @@ namespace ProductManagements
                     return;
                 }
 
-                // Validate business rules
+                // BUG #2: Same missing negative stock validation in update
+                // Original validation commented out:
+                /*
                 if (stockQuantity < 0)
                 {
                     MessageBox.Show("A készlet mennyisége nem lehet negatív.", "Érvényesítési hiba",
@@ -285,6 +344,7 @@ namespace ProductManagements
                     txtStockQuantity.Focus();
                     return;
                 }
+                */
 
                 if (price <= 0)
                 {
@@ -326,14 +386,8 @@ namespace ProductManagements
             }
         }
 
-        private void label2_Click_1(object sender, EventArgs e)
-        {
-            // Empty event handler
-        }
+        private void label2_Click_1(object sender, EventArgs e) { }
 
-        /// <summary>
-        /// Helper method to clear all input fields
-        /// </summary>
         private void ClearForm()
         {
             try
@@ -346,7 +400,6 @@ namespace ProductManagements
             }
             catch (Exception ex)
             {
-                // Log error but don't show to user as it's not critical
                 System.Console.WriteLine($"Hiba az ûrlap törlésekor: {ex.Message}");
             }
         }
